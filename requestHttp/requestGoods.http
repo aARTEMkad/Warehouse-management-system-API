@@ -1,0 +1,43 @@
+### Create Goods
+POST http://localhost:3000/goods
+Content-Type: application/json
+
+{
+    "Name": "TestName1",
+    "CodeGoods": "TestGoodsCode1",
+    "Category": "TestCategory1",
+    "Procuder": "TestProcuder1",
+    "ProductDescription": "TestDescription1",
+    "CountInWarehouse": 2,
+    "PriceBuy": 21,
+    "PriceSell": 32,
+    "SerialNumbers": "testSerialNumber1"
+}
+
+### Find by id goods
+GET http://localhost:3000/goods/65b2e5339f36e52f58cb4246
+
+
+### Find all parametrs
+GET http://localhost:3000/goods
+Content-Type: application/json
+
+{
+}
+
+### Delete goods
+DELETE http://localhost:3000/goods/65b2e55f9f36e52f58cb424c
+
+
+### Update goods
+PATCH http://localhost:3000/goods/65b2e5339f36e52f58cb4246
+Content-Type: application/json
+
+{
+    "Name": "TgtestName1",
+    "CodeGoods": "TertgstGoodsCode1",
+    "Category": "TestCwerategory1",
+    "Procuder": "TesrbettProcuder1",
+    "ProductDescription": "TestbweDescription1",
+    "SerialNumbers": "testSegwrerialNumber1"
+}
