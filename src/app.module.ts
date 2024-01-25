@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ envFilePath: 'setting.env'}),
+    ConfigModule.forRoot({ envFilePath: 'env/setting.env'}),
     MongooseModule.forRoot(`mongodb+srv://${process.env.NAME}:${process.env.PASSWORD}@cluster0.xbbyrq7.mongodb.net/`, { dbName: 'WareHouseManagment'}),
     GoodsModule,
     ProcudersModule,
