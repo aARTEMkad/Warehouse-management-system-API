@@ -7,17 +7,17 @@ import mongoose, { Mongoose } from "mongoose";
 @Schema()
 export class Goods {
 
-    @Prop({ required: true, maxlength: 40 })
+    @Prop({ required: true, maxlength: 40, unique: true })
     Name: string;
 
-    @Prop({ required: true})
+    @Prop({ required: true, unique: true })
     CodeGoods: string;
 
-    //@Prop()
-    //Category: classCategory
+    @Prop({ required: true })
+    Category: string;
     
-    //@Prop()
-    //Procuder: classProcuder
+    @Prop({ required: true })
+    Procuder: string;
 
     @Prop({ maxlength: 600 })
     ProductDescription: string;
@@ -31,7 +31,7 @@ export class Goods {
     @Prop({ required: false})
     PriceSell: number;  
 
-    @Prop({ required: true })
+    @Prop({ required: true, unique: true })
     SerialNumbers: string;
 }
 
