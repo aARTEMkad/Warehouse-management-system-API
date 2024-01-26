@@ -16,7 +16,7 @@ export class CategoresService {
     }
 
     findById(id: string) {
-        return this.categoryRepo.findById(id);
+        return this.categoryRepo.findById(id).populate('Goods');
     }
 
     findByParam(paramSearch: any) {

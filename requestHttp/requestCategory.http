@@ -1,26 +1,26 @@
-### Create procuder
+### Create category
 POST http://localhost:3000/categores
 Content-Type: application/json
 
 {
-    "Name": "ufnwe"
+    "Name": "TestCategory1"
 }
 
-### Find by id procuder
-GET http://localhost:3000/categores/65b433bdf3db6636fb2e1a35
+### Find by id category
+GET http://localhost:3000/categores/65b44169f90f955ae316bc7d
 
-### Find by param procuder
+### Find by param category
 GET http://localhost:3000/categores
 Content-Type: application/json
 
 {
 }
 
-### Delete procuder
+### Delete category
 DELETE http://localhost:3000/categores/65b433bdf3db6636fb2e1a35
 
-### Update procuder
-PATCH http://localhost:3000/categores/65b433bdf3db6636fb2e1a35
+### Update category
+PATCH http://localhost:3000/categores/65b439ed138c0e3f43224028
 Content-Type: application/json
 
 {

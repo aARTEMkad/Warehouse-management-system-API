@@ -16,7 +16,7 @@ export class ProcudersService {
     }
 
     findById(id: string) {
-        return this.repoProcuder.findById(id);
+        return this.repoProcuder.findById(id).populate('Goods');
     }
 
     findByParam(paramSearch: any) {

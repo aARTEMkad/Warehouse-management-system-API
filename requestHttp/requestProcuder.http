@@ -3,7 +3,7 @@ POST http://localhost:3000/procuders
 Content-Type: application/json
 
 {
-    "Name": "Cargo"
+    "Name": "TestProcuder1"
 }
 
 ### Find by id procuder

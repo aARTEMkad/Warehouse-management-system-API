@@ -14,6 +14,6 @@ import { Procuder, ProcuderSchema } from './Schemas/procuder.schema';
     ])
   ],
   providers: [ProcudersService],
-  controllers: [ProcudersController]
+  controllers: [ProcudersController],
 })
 export class ProcudersModule {}
