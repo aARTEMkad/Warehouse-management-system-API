@@ -18,27 +18,27 @@ export class UsersController {
 
     @Prop()
     signup(@Body() signupDto: SignupUserDto) {
-        
+
     }
 
 
     @Get('/:id')
     getUserByID(@Param('id') id: string) {
-
+        return this.usersService.findById(id);
     }
 
     @Get()
     getUsersByParam(@Body() paramSearch: any) {
-
+        return this.usersService.findByParam(paramSearch);
     }
 
     @Delete('/:id')
     deleteUser(@Param('id') id: string) {
-
+        return this.usersService.delete(id);
     }
 
-    @Patch('/:id') 
+    @Patch('/:id') // Add function check user
     updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-
+        return this.usersService.update(id, updateUserDto);
     }
 }

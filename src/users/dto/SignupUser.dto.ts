@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsString } from "class-validator";
+import { IsDateString, IsEmail, IsOptional, IsString } from "class-validator";
 
 export class SignupUserDto {
 
@@ -19,4 +19,6 @@ export class SignupUserDto {
 
     @IsDateString()
     birthDay: string;
+
+    rememberMe: boolean;
 }

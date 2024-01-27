@@ -7,4 +7,6 @@ export class SigninUserDto {
 
     @IsString()
     password: string;
+
+    rememberMe: boolean;
 }
