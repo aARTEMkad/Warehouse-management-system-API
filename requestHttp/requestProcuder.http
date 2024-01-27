@@ -1,0 +1,28 @@
+### Create procuder
+POST http://localhost:3000/procuders
+Content-Type: application/json
+
+{
+    "Name": "TestProcuder13"
+}
+
+### Find by id procuder
+GET http://localhost:3000/procuders/65b433bdf3db6636fb2e1a35
+
+### Find by param procuder
+GET http://localhost:3000/procuders
+Content-Type: application/json
+
+{
+}
+
+### Delete procuder
+DELETE http://localhost:3000/procuders/65b433bdf3db6636fb2e1a35
+
+### Update procuder
+PATCH http://localhost:3000/procuders/65b433bdf3db6636fb2e1a35
+Content-Type: application/json
+
+{
+    "Name": "fwewef"
+}
