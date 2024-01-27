@@ -6,6 +6,7 @@ import { CreateGoodsDto } from './dto/createGoods.dto';
 import { UpdateGoodsDto } from './dto/updateGoods.dto';
 import { Procuder } from 'src/procuders/Schemas/procuder.schema';
 import { Category } from 'src/categores/Schemas/category.schema';
+import { urlToHttpOptions } from 'url';
 
 @Injectable()
 export class GoodsService {
@@ -81,15 +82,55 @@ export class GoodsService {
         }
     }
 
-    update(id: string, updateGoodsDto: UpdateGoodsDto) {
+    async update(id: string, updateGoodsDto: UpdateGoodsDto) {
         try {
-            const goods = this.goodsRepo.findByIdAndUpdate(id, updateGoodsDto); 
+            const goods = await this.goodsRepo.findByIdAndUpdate(id, updateGoodsDto); 
 
-        // check update procuder and category
+            if(!updateGoodsDto.Category && !updateGoodsDto.Procuder) {
+                return goods;
+            } 
+            
+            if(updateGoodsDto.Category) {
+                const OldfindCategory = await this.repoCategory.findOne({ Name: goods.Category });
 
-        // ------
-        
-            return goods
+                await OldfindCategory.updateOne({
+                    $pull: {
+                        Goods: goods._id
+                    }
+                })
+
+                const newfindCategory = await this.repoCategory.findOne({ Name: updateGoodsDto.Category });
+
+                if(!newfindCategory) throw new HttpException('Category not found', 400);
+
+                await newfindCategory.updateOne({
+                    $push: {
+                        Goods: goods._id
+                    }
+                })
+            }
+            
+            if(updateGoodsDto.Procuder) {
+                const OldfindProcuder = await this.repoProcuder.findOne({ Name: goods.Procuder });
+
+                await OldfindProcuder.updateOne({
+                    $pull: {
+                        Goods: goods._id
+                    }
+                })
+
+                const newfindProcuder = await this.repoProcuder.findOne({ Name: updateGoodsDto.Procuder });
+
+                if(!newfindProcuder) throw new HttpException('Procuder not found', 400);
+
+                await newfindProcuder.updateOne({
+                    $push: {
+                        Goods: goods._id
+                    }
+                })
+            }
+
+            return goods;
         } catch(err) {
             return err;
         }

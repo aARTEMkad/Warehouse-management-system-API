@@ -3,7 +3,7 @@ POST http://localhost:3000/categores
 Content-Type: application/json
 
 {
-    "Name": "TestCategory1"
+    "Name": "TestCategory13"
 }
 
 ### Find by id category
