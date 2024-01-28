@@ -1,5 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch } from '@nestjs/common';
-import { Prop } from '@nestjs/mongoose';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto/updateUser.dto';
 import { SigninUserDto } from './dto/SigninUser.dto';
@@ -10,15 +9,15 @@ export class UsersController {
 
     constructor(private usersService: UsersService) {   }
     
-    @Prop()
+    @Post('login')
     signin(@Body() signInDto: SigninUserDto) {
-
+        return this.usersService.signin(signInDto);
     }
 
 
-    @Prop()
+    @Post('registration')
     signup(@Body() signupDto: SignupUserDto) {
-
+        return this.usersService.signup(signupDto);
     }
 
 

@@ -1,0 +1,47 @@
+### signin user
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "usernameOrEmail": "aARTEMkad",
+    "password": "qwe123",
+    "rememberMe": false
+}
+
+### signup user
+POST http://localhost:3000/users/registration
+Content-Type: application/json
+
+{
+    "username": "aARTEMkad",
+    "password": "qwe123",
+    "firstName": "Artem",
+    "lastName": "Karpuk",
+    "email": "artemkovel2008@gmail.com",
+    "birthDay": "2000-01-12",
+    "rememberMe": false
+}
+
+### Find by id user
+GET http://localhost:3000/users/65b65c500449346c7a6952c8
+
+
+### Find all parametrs user
+GET http://localhost:3000/users
+Content-Type: application/json
+
+{
+}
+
+### Delete  user
+DELETE http://localhost:3000/users/65b65dcb5d824fe7f7aecd8b
+
+
+### Update  user
+PATCH http://localhost:3000/users/65b450b319049b2c08f9875c
+Content-Type: application/json
+
+{
+    "Category": "TestCategory1",
+    "Procuder": "TestProcuder1"
+}
