@@ -1,0 +1,23 @@
+### signin user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "usernameOrEmail": "aARTEMkad1",
+    "password": "qwe123",
+    "rememberMe": true
+}
+
+### signup user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aARTEMkad1",
+    "password": "qwe123",
+    "firstName": "Artem",
+    "lastName": "Karpuk",
+    "email": "artemkovel20081@gmail.com",
+    "birthDay": "2000-01-12",
+    "rememberMe": false
+}

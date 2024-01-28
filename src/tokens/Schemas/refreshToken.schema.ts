@@ -6,7 +6,7 @@ import { ObjectId } from "mongoose";
 @Schema()
 export class RefreshToken {
     
-    @Prop({required: true})
+    @Prop({required: true, unique: true})
     userID: string;
 
     @Prop({required: true})
