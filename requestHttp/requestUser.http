@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "usernameOrEmail": "aARTEMkad",
     "password": "qwe123",
-    "rememberMe": false
+    "rememberMe": true
 }
 
 ### signup user

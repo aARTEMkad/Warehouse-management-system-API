@@ -48,13 +48,8 @@ export class UsersService {
                     roles: findUserByEmail.roles
                 }
     
-                const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken);
+                const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETACCESSTOKEN });
                 const refreshToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETREFRESHTOKEN})
-    
-                console.log('------\n')
-                console.log(accessToken);
-                console.log('--------\n')
-                console.log(refreshToken)
     
                 const tmpRefreshTokenDB = {
                     userID: findUserByEmail._id,
@@ -91,13 +86,8 @@ export class UsersService {
                 roles: findUserByUsername.roles
             }
 
-            const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken);
-            const refreshToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETREFRESHTOKEN})
-
-            console.log('------\n')
-            console.log(accessToken);
-            console.log('--------\n')
-            console.log(refreshToken)
+            const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETACCESSTOKEN });
+            const refreshToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETREFRESHTOKEN })
 
             const tmpRefreshTokenDB = {
                 userID: findUserByUsername._id,
@@ -130,14 +120,8 @@ export class UsersService {
                 roles: user.roles
             }
 
-            const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken);
+            const accessToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETACCESSTOKEN });
             const refreshToken = this.jwtService.sign(tmpRefreshAndAccessToken, { secret: process.env.SECRETREFRESHTOKEN})
-
-            console.log('------\n')
-            console.log(accessToken);
-            console.log('--------\n')
-            console.log(refreshToken)
-
             const tmpRefreshTokenDB = {
                 userID: user._id,
                 refreshToken: refreshToken,
