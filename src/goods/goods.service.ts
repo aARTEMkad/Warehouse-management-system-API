@@ -6,7 +6,6 @@ import { CreateGoodsDto } from './dto/createGoods.dto';
 import { UpdateGoodsDto } from './dto/updateGoods.dto';
 import { Procuder } from 'src/procuders/Schemas/procuder.schema';
 import { Category } from 'src/categores/Schemas/category.schema';
-import { urlToHttpOptions } from 'url';
 
 @Injectable()
 export class GoodsService {

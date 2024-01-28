@@ -1,0 +1,23 @@
+### Find by id user
+GET http://localhost:3000/users/65b65c500449346c7a6952c8
+
+
+### Find all parametrs user
+GET http://localhost:3000/users
+Content-Type: application/json
+
+{
+}
+
+### Delete  user
+DELETE http://localhost:3000/users/65b65dcb5d824fe7f7aecd8b
+
+
+### Update  user
+PATCH http://localhost:3000/users/65b450b319049b2c08f9875c
+Content-Type: application/json
+
+{
+    "Category": "TestCategory1",
+    "Procuder": "TestProcuder1"
+}
