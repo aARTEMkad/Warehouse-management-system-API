@@ -1,19 +1,16 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, Schema, ObjectId } from 'mongoose';
-import { RolesUser } from 'src/users/Schemas/user.schema';
+import { Model } from 'mongoose';
 import { RefreshToken } from './Schemas/refreshToken.schema';
 import { JwtService } from '@nestjs/jwt';
 
 export class StructurToken {
     userID: any;
     username: string;
-    roles: RolesUser;
 
-    constructor(userID: any, username: string, roles: RolesUser) {
+    constructor(userID: any, username: string) {
         this.userID = userID;
-        this.username = username,
-        this.roles = roles;
+        this.username = username
     }
 }
 
@@ -28,15 +25,14 @@ export class TokensService {
         const infoToken = {
             userID: structrToken.userID,
             username: structrToken.username,
-            roles: structrToken.roles
         }
         const token = this.jwtService.sign(infoToken, { secret: saltToken });
         return token;
     }
 
-    checkVerifyToken(Token) {
+    async checkVerifyToken(Token) {
         try {
-            const token = this.jwtService.verifyAsync(Token);
+            const token = await this.jwtService.verifyAsync(Token);
             return token;
         } catch(err) {
             return null;

@@ -1,9 +1,4 @@
-import { MongooseModule, Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-
-export enum RolesUser {
-    Admin = 'Admin',
-    User = 'User'
-}
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema()
 export class User {
@@ -24,9 +19,6 @@ export class User {
 
     @Prop({ required: true})
     birthDay: string;
-
-    @Prop({ required: true })
-    roles: RolesUser
 
     @Prop()
     createdAt: string;
