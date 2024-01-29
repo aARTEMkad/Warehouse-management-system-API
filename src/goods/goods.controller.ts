@@ -5,14 +5,19 @@ import { Body,
     Param, 
     Patch, 
     Post, 
+    UseGuards, 
     UsePipes, 
     ValidationPipe } from '@nestjs/common';
 import { GoodsService } from './goods.service';
 import { CreateGoodsDto } from './dto/createGoods.dto';
 import { UpdateGoodsDto } from './dto/updateGoods.dto';
+import { JwtTokenGuard } from 'src/auth/guards/auth.guard';
+
+
 
 @Controller('goods')
 @UsePipes(new ValidationPipe()) 
+@UseGuards(JwtTokenGuard)
 export class GoodsController {
 
     constructor(private goodsService: GoodsService) {}

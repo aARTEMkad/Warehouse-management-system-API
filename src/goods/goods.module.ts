@@ -5,9 +5,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Goods, GoodsSchema } from './Schemas/goods.schema';
 import { Procuder, ProcuderSchema } from 'src/procuders/Schemas/procuder.schema';
 import { Category, CaterogySchema } from 'src/categores/Schemas/category.schema';
+import { AuthModule } from 'src/auth/auth.module';
+import { TokensModule } from 'src/tokens/tokens.module';
 
 @Module({
   imports: [
+    AuthModule,
+    TokensModule,
     MongooseModule.forFeature([
       {
         name: Goods.name,

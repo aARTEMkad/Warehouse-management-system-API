@@ -30,9 +30,9 @@ export class TokensService {
         return token;
     }
 
-    checkVerifyToken(Token) {
+    async checkVerifyToken(Token) {
         try {
-            const token = this.jwtService.verifyAsync(Token);
+            const token = await this.jwtService.verifyAsync(Token);
             return token;
         } catch(err) {
             return null;
